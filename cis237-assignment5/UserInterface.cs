@@ -81,8 +81,18 @@ namespace cis237_assignment5
             return new string[] { id, name, pack, price, active };
         }
 
-        // Display All Items
-        public void DisplayAllItems()
+        public string[] UpdateItemInformation()
+        {
+            string id = this.GetStringField("Id");
+            string name = this.UpdateStringField("Name");
+            string pack = this.UpdateStringField("Pack");
+            string price = this.UpdateDecimalField("Price");
+            string active = this.GetBoolField("Active");
+
+            return new string[] { id, name, pack, price, active };
+        }
+            // Display All Items
+            public void DisplayAllItems()
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -253,6 +263,32 @@ namespace cis237_assignment5
             return value;
         }
 
+        // Get an updated string field from the console
+        private string UpdateStringField(string fieldName)
+        {
+            Console.WriteLine("What is the Item's Updated {0}", fieldName);
+            string value = null;
+            bool valid = false;
+            while (!valid)
+            {
+                value = Console.ReadLine();
+                if (!String.IsNullOrWhiteSpace(value))
+                {
+                    valid = true;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You must provide a value.");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine();
+                    Console.WriteLine("What is the Item's Updated {0}", fieldName);
+                    Console.Write("> ");
+                }
+            }
+            return value;
+        }
+
         // Get a valid decimal field from the console
         private string GetDecimalField(string fieldName)
         {
@@ -273,6 +309,33 @@ namespace cis237_assignment5
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
                     Console.WriteLine("What is the Item's {0}", fieldName);
+                    Console.Write("> ");
+                }
+            }
+
+            return value.ToString();
+        }
+
+        // Get an updated decimal from the console
+        private string UpdateDecimalField(string fieldName)
+        {
+            Console.WriteLine("What is the Item's Updated {0}", fieldName);
+            decimal value = 0;
+            bool valid = false;
+            while (!valid)
+            {
+                try
+                {
+                    value = decimal.Parse(Console.ReadLine());
+                    valid = true;
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("That is not a valid Decimal. Please enter a valid Decimal.");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine();
+                    Console.WriteLine("What is the Item's Updated {0}", fieldName);
                     Console.Write("> ");
                 }
             }

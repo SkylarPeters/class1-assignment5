@@ -2,7 +2,7 @@
 
 ## Author
 
-
+Skylar Peters
 
 ## Description
 
@@ -85,6 +85,8 @@ Here is the diagram that is used in the assignment 5 explanation video. It may a
 
 ## Outside Resources Used
 
-
+None
 
 ## Known Problems, Issues, And/Or Errors in the Program
+
+When I add an item to the list, if I were to print the list again and then try to update the item I just added, the item will be updated when I search for it. However, if I print the list again, it will show the non-updated version of that item in the list. Restarting the program will fix it in the list, and Deleting still works in removing it from the list.

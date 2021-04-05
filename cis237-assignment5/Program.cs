@@ -78,7 +78,7 @@ namespace cis237_assignment5
 
                     case 4:
                         // Update an item from the list
-                        string[] updateItemInformation = userInterface.GetNewItemInformation();
+                        string[] updateItemInformation = userInterface.UpdateItemInformation();
                         if (beverageRepository.FindById(updateItemInformation[0]) != null)
                         {
                             beverageRepository.UpdateItem(

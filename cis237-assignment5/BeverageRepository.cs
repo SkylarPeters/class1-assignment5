@@ -123,7 +123,8 @@ namespace cis237_assignment5
         // Method used to get and format the beverages from the database
         public string BeverageToString(Beverage beverage)
         {
-            return $"{beverage.id}".TrimEnd() + " " + $"{beverage.name}".TrimEnd() + " " + $"{beverage.pack}".TrimEnd() + " " + $"{beverage.price}" + " " + $"{beverage.active}";
+            return $"{beverage.id}".TrimEnd() + " " + $"{beverage.name}".TrimEnd() + " " + 
+                   $"{beverage.pack}".TrimEnd() + " " + $"{beverage.price}" + " " + $"{beverage.active}";
         }
 
         // Method to print the list
