@@ -126,6 +126,15 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+        // Display Update Beverage Success
+        public void DisplayUpdateItemSuccess()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("The Item was successfully updated");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
         // Display Item Already Exists Error
         public void DisplayItemAlreadyExistsError()
         {
@@ -216,7 +225,7 @@ namespace cis237_assignment5
         // Get a valid string field from the console
         private string GetStringField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("What is the Item's {0}", fieldName);
             string value = null;
             bool valid = false;
             while (!valid)
@@ -232,7 +241,7 @@ namespace cis237_assignment5
                     Console.WriteLine("You must provide a value.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("What is the Item's {0}", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -242,7 +251,7 @@ namespace cis237_assignment5
         // Get a valid decimal field from the console
         private string GetDecimalField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("What is the Item's {0}", fieldName);
             decimal value = 0;
             bool valid = false;
             while (!valid)
@@ -258,7 +267,7 @@ namespace cis237_assignment5
                     Console.WriteLine("That is not a valid Decimal. Please enter a valid Decimal.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("What is the Item's {0}", fieldName);
                     Console.Write("> ");
                 }
             }

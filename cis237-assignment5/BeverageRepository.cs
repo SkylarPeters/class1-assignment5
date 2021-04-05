@@ -66,7 +66,28 @@ namespace cis237_assignment5
                 // Write to Console that there was an error.
                 Console.WriteLine("Can't add the record. Unknown error occured");
             }
+        }
 
+        // Method to update a beverage in the list
+        public void UpdateItem(
+            string id,
+            string name,
+            string pack,
+            decimal price,
+            bool active
+            )
+        {
+            // New instance of beverage
+            Beverage beverageToUpdate = _beverageContext.Beverages.Find(id);
+
+            // Assign properties to the parts of the beverage
+            beverageToUpdate.name = name;
+            beverageToUpdate.pack = pack;
+            beverageToUpdate.price = price;
+            beverageToUpdate.active = active;
+
+            // Save changes to database
+            _beverageContext.SaveChanges();
         }
 
         // ToString override method to convert the collection to a string
@@ -119,8 +140,10 @@ namespace cis237_assignment5
             return $"{beverage.id}".TrimEnd() + " " + $"{beverage.name}".TrimEnd() + " " + $"{beverage.pack}".TrimEnd() + " " + $"{beverage.price}" + " " + $"{beverage.active}";
         }
 
+        // Method to print the list
         public void PrintList()
         {
+            // Print every beverage from the database
             foreach(Beverage beverage in _beverageContext.Beverages)
             {
                 Console.WriteLine(BeverageToString(beverage));

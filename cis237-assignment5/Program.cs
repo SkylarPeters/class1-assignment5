@@ -32,7 +32,7 @@ namespace cis237_assignment5
             int choice = userInterface.DisplayMenuAndGetResponse();
 
             // While the choice is not exit program
-            while (choice != 5)
+            while (choice != 6)
             {
                 switch (choice)
                 {
@@ -103,6 +103,26 @@ namespace cis237_assignment5
                         else
                         {
                             userInterface.DisplayItemAlreadyExistsError();
+                        }
+                        break;
+
+                    case 5:
+                        // Update an item from the list
+                        string[] updateItemInformation = userInterface.GetNewItemInformation();
+                        if (beverageRepository.FindById(updateItemInformation[0]) != null)
+                        {
+                            beverageRepository.UpdateItem(
+                                updateItemInformation[0],
+                                updateItemInformation[1],
+                                updateItemInformation[2],
+                                decimal.Parse(updateItemInformation[3]),
+                                (updateItemInformation[4] == "True")
+                            );
+                            userInterface.DisplayUpdateItemSuccess();
+                        }
+                        else
+                        {
+                            userInterface.DisplayItemFoundError();
                         }
                         break;
                 }
