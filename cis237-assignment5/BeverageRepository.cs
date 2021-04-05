@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Skylar Peters
+// CIS 237
+// 4/5/2021
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,18 +13,6 @@ namespace cis237_assignment5
 {
     class BeverageRepository
     {
-        // Private Variables
-        //private Beverage[] beverages;
-        //private int beverageLength;
-
-        // Constructor. Must pass the size of the collection.
-        //public BeverageRepository(int size)
-        //{
-        //    this.beverages = new Beverage[size];
-        //    this.beverageLength = 0;
-        //}
-
-
         // New instance of the BeverageContext
         BeverageContext _beverageContext = new BeverageContext();
 
@@ -102,25 +94,6 @@ namespace cis237_assignment5
             // Save the changes to the database
             _beverageContext.SaveChanges();
         }
-
-        // ToString override method to convert the collection to a string
-        //public override string ToString()
-        //{
-        //    // Declare a return string
-        //    string returnString = "";
-
-        //    // Loop through all of the beverages
-        //    foreach (Beverage beverage in _beverageContext.Beverages)
-        //    {
-        //        // If the current beverage is not null, concat it to the return string
-        //        if (beverage != null)
-        //        {
-        //            returnString += beverage.ToString() + Environment.NewLine;
-        //        }
-        //    }
-        //    // Return the return string
-        //    return returnString;
-        //}
 
         // Find an item by it's Id
         public string FindById(string id)

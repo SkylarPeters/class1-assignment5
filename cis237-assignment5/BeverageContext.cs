@@ -1,3 +1,7 @@
+// Skylar Peters
+// CIS 237
+// 4/5/2021
+
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;

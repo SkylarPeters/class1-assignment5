@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Skylar Peters
+// CIS 237
+// 4/5/2021
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,15 +92,6 @@ namespace cis237_assignment5
             beverageRepository.PrintList();
         }
 
-        // Display All Items Error
-        public void DisplayAllItemsError()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("There are no items in the list to print");
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
         // Display Item Found Success
         public void DisplayItemFound(string itemInformation)
         {
@@ -144,20 +139,14 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
-        public void DisplayUnknownError()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Can't add the record. Unknown error occured");
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
+        // Display to get Id
         public void DisplayDeleteItem()
         {
             Console.WriteLine();
             Console.WriteLine("Enter ID of item to delete.");
         }
 
+        // Display Delete Beverage Success
         public void DisplayDeleteItemSuccess()
         {
             Console.WriteLine();
@@ -179,11 +168,12 @@ namespace cis237_assignment5
             Console.WriteLine();
             Console.WriteLine("What would you like to do?");
             Console.WriteLine();
-            Console.WriteLine("1. Load Wine List From CSV");
-            Console.WriteLine("2. Print The Entire List Of Items");
-            Console.WriteLine("3. Search For An Item");
-            Console.WriteLine("4. Add New Item To The List");
-            Console.WriteLine("5. Exit Program");
+            Console.WriteLine("1. Print The Entire List Of Items");
+            Console.WriteLine("2. Search For An Item");
+            Console.WriteLine("3. Add New Item To The List");
+            Console.WriteLine("4. Update An Item On The List");
+            Console.WriteLine("5. Delete An Item From The List");
+            Console.WriteLine("6. Exit Program");
         }
 
         // Display the Prompt
@@ -318,27 +308,5 @@ namespace cis237_assignment5
 
             return value.ToString();
         }
-
-        // Get a string formatted as a header for items
-        //private string GetItemHeader()
-        //{
-        //    return String.Format(
-        //        "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
-        //        "Id",
-        //        "Name",
-        //        "Pack",
-        //        "Price",
-        //        "Active"
-        //    ) +
-        //    Environment.NewLine +
-        //    String.Format(
-        //        "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
-        //        new String('-', 6),
-        //        new String('-', 40),
-        //        new String('-', 15),
-        //        new String('-', 6),
-        //        new String('-', 5)
-        //    );
-        //}
     }
 }

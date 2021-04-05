@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Skylar Peters
+// CIS 237
+// 4/5/2021
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +14,10 @@ namespace cis237_assignment5
     {
         static void Main(string[] args)
         {
-            //// Set Console Window Size
+            // Set Console Window Size
             Console.BufferHeight = Int16.MaxValue - 1;
             Console.WindowHeight = 40;
             Console.WindowWidth = 120;
-
-            // Set a constant for the size of the collection
-            //const int beverageCollectionSize = 4000;
 
             // Create an instance of the UserInterface class
             UserInterface userInterface = new UserInterface();
@@ -32,47 +33,16 @@ namespace cis237_assignment5
             int choice = userInterface.DisplayMenuAndGetResponse();
 
             // While the choice is not exit program
-            while (choice != 7)
+            while (choice != 6)
             {
                 switch (choice)
                 {
                     case 1:
-                    // Load the CSV File
-                    //bool success = csvProcessor.ImportCSV(beverageCollection, pathToCSVFile);
-                    //if (success)
-                    //{
-                    //    // Display Success Message
-                    //    userInterface.DisplayImportSuccess();
-                    //}
-                    //else
-                    //{
-                    //    // Display Fail Message
-                    //    userInterface.DisplayImportError();
-                    //}
-                    //break;
-
-                    case 2:
                         // Print Entire List Of Items
                         userInterface.DisplayAllItems();
                         break;
 
-                    //case 2:
-                    //    // Print Entire List Of Items
-                    //    string allItemsString = beverageRepository.ToString();
-                    //    if (!String.IsNullOrWhiteSpace(allItemsString))
-                    //    {
-                    //        // Display all of the items
-                    //        userInterface.DisplayAllItems(allItemsString);
-                    //        //beverageRepository.PrintList();
-                    //    }
-                    //    else
-                    //    {
-                    //        // Display error message for all items
-                    //        userInterface.DisplayAllItemsError();
-                    //    }
-                    //    break;
-
-                    case 3:
+                    case 2:
                         // Search For An Item
                         string searchQuery = userInterface.GetSearchQuery();
                         string itemInformation = beverageRepository.FindById(searchQuery);
@@ -86,7 +56,7 @@ namespace cis237_assignment5
                         }
                         break;
 
-                    case 4:
+                    case 3:
                         // Add A New Item To The List
                         string[] newItemInformation = userInterface.GetNewItemInformation();
                         if (beverageRepository.FindById(newItemInformation[0]) == null)
@@ -106,7 +76,7 @@ namespace cis237_assignment5
                         }
                         break;
 
-                    case 5:
+                    case 4:
                         // Update an item from the list
                         string[] updateItemInformation = userInterface.GetNewItemInformation();
                         if (beverageRepository.FindById(updateItemInformation[0]) != null)
@@ -126,7 +96,7 @@ namespace cis237_assignment5
                         }
                         break;
 
-                    case 6:
+                    case 5:
                         // Delete an item from the list
                         userInterface.DisplayDeleteItem();
                         string input = Console.ReadLine();
