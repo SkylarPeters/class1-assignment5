@@ -77,24 +77,6 @@ namespace cis237_assignment5
             return new string[] { id, name, pack, price, active };
         }
 
-        // Display Import Success
-        public void DisplayImportSuccess()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Wine List Has Been Imported Successfully");
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
-        // Display Import Error
-        public void DisplayImportError()
-        {
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("There was an error importing the CSV");
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
-
         // Display All Items
         public void DisplayAllItems()
         {
@@ -122,8 +104,6 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Item Found!");
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(this.GetItemHeader());
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(itemInformation);
         }
@@ -152,6 +132,14 @@ namespace cis237_assignment5
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("An Item With That Id Already Exists");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        public void DisplayUnknownError()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Can't add the record. Unknown error occured");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -187,6 +175,7 @@ namespace cis237_assignment5
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("That is not a valid option. Please make a valid choice");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         // Get the selection from the user
@@ -307,25 +296,25 @@ namespace cis237_assignment5
         }
 
         // Get a string formatted as a header for items
-        private string GetItemHeader()
-        {
-            return String.Format(
-                "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
-                "Id",
-                "Name",
-                "Pack",
-                "Price",
-                "Active"
-            ) +
-            Environment.NewLine +
-            String.Format(
-                "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
-                new String('-', 6),
-                new String('-', 40),
-                new String('-', 15),
-                new String('-', 6),
-                new String('-', 5)
-            );
-        }
+        //private string GetItemHeader()
+        //{
+        //    return String.Format(
+        //        "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
+        //        "Id",
+        //        "Name",
+        //        "Pack",
+        //        "Price",
+        //        "Active"
+        //    ) +
+        //    Environment.NewLine +
+        //    String.Format(
+        //        "{0,-6} {1,-55} {2,-15} {3,6} {4,-6}",
+        //        new String('-', 6),
+        //        new String('-', 40),
+        //        new String('-', 15),
+        //        new String('-', 6),
+        //        new String('-', 5)
+        //    );
+        //}
     }
 }

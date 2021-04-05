@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
 
 namespace cis237_assignment5
 {
@@ -19,6 +20,7 @@ namespace cis237_assignment5
         //    this.beverageLength = 0;
         //}
 
+
         // New instance of the BeverageContext
         BeverageContext _beverageContext = new BeverageContext();
 
@@ -31,9 +33,40 @@ namespace cis237_assignment5
             bool active
         )
         {
-            // Add a new Beverage to the collection. Increase the Length variable.
-            //beverages[beverageLength] = new Beverage(id, name, pack, price, active);
-            //beverageLength++;
+            // New instance of beverage
+            Beverage newBeverageToAdd = new Beverage();
+
+            // Assign properties to the parts of the beverage
+            newBeverageToAdd.id = id;
+            newBeverageToAdd.name = name;
+            newBeverageToAdd.pack = pack;
+            newBeverageToAdd.price = price;
+            newBeverageToAdd.active = active;
+
+            // Try catch to make sure id of beverage doesn't already exist
+            try
+            {
+                // Add new beverage to the collection
+                _beverageContext.Beverages.Add(newBeverageToAdd);
+
+                // Save changes to database
+                _beverageContext.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                // Remove the new beverage from the Database since we can't save it.
+                _beverageContext.Beverages.Remove(newBeverageToAdd);
+                // Write to Console that there was an error.
+                Console.WriteLine("Can't add the record. Already have one with the same ID.");
+            }
+            catch (Exception e)
+            {
+                // Remove the new beverage from the Database since we can't save it.
+                _beverageContext.Beverages.Remove(newBeverageToAdd);
+                // Write to Console that there was an error.
+                Console.WriteLine("Can't add the record. Unknown error occured");
+            }
+
         }
 
         // ToString override method to convert the collection to a string
@@ -55,12 +88,6 @@ namespace cis237_assignment5
         //    return returnString;
         //}
 
-        // Method used to get and format the beverages from the database
-        public string BeverageToString(Beverage beverage)
-        {
-            return $"{beverage.id}".TrimEnd() + " " + $"{beverage.name}".TrimEnd() + " " + $"{beverage.pack}".TrimEnd() + " " + $"{beverage.price}" + " " + $"{beverage.active}";
-        }
-
         // Find an item by it's Id
         public string FindById(string id)
         {
@@ -78,12 +105,18 @@ namespace cis237_assignment5
                     {
                         // Set the return string to the result
                         // of the beverage's ToString method.
-                        returnString = beverage.ToString();
+                        returnString = BeverageToString(beverage);
                     }
                 }
             }
             // Return the returnString
             return returnString;
+        }
+
+        // Method used to get and format the beverages from the database
+        public string BeverageToString(Beverage beverage)
+        {
+            return $"{beverage.id}".TrimEnd() + " " + $"{beverage.name}".TrimEnd() + " " + $"{beverage.pack}".TrimEnd() + " " + $"{beverage.price}" + " " + $"{beverage.active}";
         }
 
         public void PrintList()
