@@ -10,6 +10,9 @@ namespace cis237_assignment5
     {
         const int MAX_MENU_CHOICES = 5;
 
+        // Create an instance of the BeverageRepository class
+        BeverageRepository beverageRepository = new BeverageRepository();
+
         /*
         |----------------------------------------------------------------------
         | Public Methods
@@ -93,16 +96,14 @@ namespace cis237_assignment5
         }
 
         // Display All Items
-        public void DisplayAllItems(string allItemsOutput)
+        public void DisplayAllItems()
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Printing List");
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(this.GetItemHeader());
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(allItemsOutput);
+            beverageRepository.PrintList();
         }
 
         // Display All Items Error
