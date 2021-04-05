@@ -8,7 +8,7 @@ namespace cis237_assignment5
 {
     class UserInterface
     {
-        const int MAX_MENU_CHOICES = 5;
+        const int MAX_MENU_CHOICES = 6;
 
         // Create an instance of the BeverageRepository class
         BeverageRepository beverageRepository = new BeverageRepository();
@@ -150,6 +150,21 @@ namespace cis237_assignment5
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Can't add the record. Unknown error occured");
             Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        public void DisplayDeleteItem()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Enter ID of item to delete.");
+        }
+
+        public void DisplayDeleteItemSuccess()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("The Item was successfully deleted");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
         }
 
         /*

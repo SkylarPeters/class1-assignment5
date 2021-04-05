@@ -86,7 +86,20 @@ namespace cis237_assignment5
             beverageToUpdate.price = price;
             beverageToUpdate.active = active;
 
-            // Save changes to database
+            // Save the changes to database
+            _beverageContext.SaveChanges();
+        }
+
+        // Method to delete a beverage from the list
+        public void DeleteItem(string id)
+        {
+            // Get a beverage out of the database that we want to delete
+            Beverage beverageToDelete = _beverageContext.Beverages.Find(id);
+
+            // Remove the beverage from the database
+            _beverageContext.Beverages.Remove(beverageToDelete);
+
+            // Save the changes to the database
             _beverageContext.SaveChanges();
         }
 
